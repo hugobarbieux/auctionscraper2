@@ -13,11 +13,17 @@ root = lxml.html.fromstring(html)
 matchedlinks = root.cssselect("li p a")
 # print(matchedlinks)
 
+# Create a dictionary called record
+record = {}
 # Loop through the items in the matchedlinks, calling each one li
 for li in matchedlinks:
   # Store the text contents for li in a new variable listtext
   listtext = li.text_content()
   print(listtext)
+  # Store in the 'record' dictionary under the key 'address'
+  record['address'] = listtext
+  # Save the record to the datastore with 'address' as a unique key
+  scraperwiki.sqlite.save(['address'],record)
 
 # # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=['name'], data={"name": "susan", "occupation": "software developer"})
