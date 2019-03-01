@@ -19,7 +19,7 @@ record = {}
 for li in matchedlinks:
   # Store the text contents for li in a new variable listtext
   listtext = li.text_content()
-  print(listtext)
+  print(listtext.encode('utf-8'))
   # Store in the 'record' dictionary under the key 'address'
   record['address'] = listtext
   # Save the record to the datastore with 'address' as a unique key
