@@ -14,7 +14,7 @@ matchedlinks = root.cssselect("li p a")
 # print(matchedlinks)
 
 # Loop through the items in the matchedlinks, calling each one li
-for li matchedlinks:
+for li in matchedlinks:
   # Store the text contents for li in a new variable listtext
   listtext = li.text_content()
   print(listtext)
